@@ -1,8 +1,7 @@
 import logo from "../../assets/img/logo.svg";
+import './styles.css';
 
-import './styles.css'
-
-function Header() {
+function Header(): JSX.Element {
     return (
         <header>
             <div className="dsmeta-logo-container">

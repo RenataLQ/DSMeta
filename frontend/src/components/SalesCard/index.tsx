@@ -1,25 +1,35 @@
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import NotificationButton from '../NotificationButton'
-import './styles.css'
+import NotificationButton from '../NotificationButton';
+import './styles.css';
 
 function SalesCard() {
+
+    const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    const max = new Date ();
+
+
+    const [minDate, setMinDate] = useState(new Date(min));
+    const [maxDate, setMaxDate] = useState(new Date(max));
+
+
     return (
         <div className="dsmeta-card">
             <h2 className="dsmeta-sales-title">Vendas</h2>
             <div>
                 <div className="dsmeta-form-control-container">
                     <DatePicker
-                        selected={new Date()}
-                        onChange={(date: Date) => { }}
+                        selected={minDate}
+                        onChange={(date: Date) => setMinDate(date)}
                         className="dsmeta-form-control"
                         dateFormat="dd/MM/yyyy"
                     />
                 </div>
                 <div className="dsmeta-form-control-container">
                     <DatePicker
-                        selected={new Date()}
-                        onChange={(date: Date) => { }}
+                        selected={maxDate}
+                        onChange={(date: Date) => setMaxDate(date)}
                         className="dsmeta-form-control"
                         dateFormat="dd/MM/yyyy"
                     />
@@ -41,7 +51,7 @@ function SalesCard() {
                     <tbody>
                         <tr>
                             <td className="show992">#001</td>
-                            <td className="show576">11/07/2022</td>
+                            <td className="show576">16/07/2022</td>
                             <td>Harry Potter</td>
                             <td className="show992">15</td>
                             <td className="show992">11</td>
@@ -54,7 +64,7 @@ function SalesCard() {
                         </tr>
                         <tr>
                             <td className="show992">#002</td>
-                            <td className="show576">11/07/2022</td>
+                            <td className="show576">16/07/2022</td>
                             <td>Hermione Granger</td>
                             <td className="show992">20</td>
                             <td className="show992">15</td>
@@ -67,7 +77,7 @@ function SalesCard() {
                         </tr>
                         <tr>
                             <td className="show992">#003</td>
-                            <td className="show576">11/07/2022</td>
+                            <td className="show576">16/07/2022</td>
                             <td>Ronald Weasley</td>
                             <td className="show992">10</td>
                             <td className="show992">9</td>
@@ -80,7 +90,7 @@ function SalesCard() {
                         </tr>
                         <tr>
                             <td className="show992">#004</td>
-                            <td className="show576">11/07/2022</td>
+                            <td className="show576">16/07/2022</td>
                             <td>Neville Longbotton</td>
                             <td className="show992">12</td>
                             <td className="show992">8</td>
@@ -98,4 +108,4 @@ function SalesCard() {
     )
 }
 
-export default SalesCard
+export default SalesCard;
